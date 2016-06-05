@@ -1,7 +1,9 @@
 package johnkagga.me.fonts;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Typeface;
+import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -67,5 +69,39 @@ public class FontManager {
             fontCache.put(font, typeface);
         }
         return typeface;
+    }
+
+    /**
+     * Set a custom font for the text view.
+     *
+     * @param context
+     * @param font
+     * @param textView
+     */
+    public static void setFont(Context context, String font, TextView textView) {
+        if (font == null) {
+            return;
+        }
+
+        Typeface typeface = getCachedFont(context, font);
+
+        if (typeface != null) {
+            textView.setTypeface(typeface);
+        }
+    }
+
+    /**
+     * Sets a font on a text view based on the custom com.my.package:font attribute
+     * If the custom font attribute isn't found in the attributes nothing happens
+     *
+     * @param context
+     * @param textView
+     * @param attr
+     */
+    public static void setCustomFont(Context context, TextView textView, AttributeSet attr) {
+        TypedArray typedArray = context.obtainStyledAttributes(attr, R.styleable.fontAwesome);
+        String font = typedArray.getString(R.styleable.fontAwesome_font);
+        setFont(context, font, textView);
+        typedArray.recycle();
     }
 }

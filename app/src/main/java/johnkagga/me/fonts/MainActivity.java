@@ -20,4 +20,17 @@ public class MainActivity extends AppCompatActivity {
                         fontAwesome);
 
     }
+
+    /**
+     * Adding a custom font to a button
+     * 1. Add an attrs.xml file to the values folder.
+     * 2. Add a style with an item name of the added attribute with the
+     * full package name.
+     * 3. Create a method that adds the custom font to the button (TextView) since
+     * Button extends TextView from the attribute.
+     * 4. Create a custom button class and extend the button class.
+     * 5. Add the custom button to the xml layout and specify the
+     * text (Font key).
+     * 6. Done.
+     */
 }
