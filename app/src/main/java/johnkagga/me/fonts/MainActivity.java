@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Apply Font awesome to text views
         Typeface fontAwesome = FontManager
-                .getTypeFace(getApplicationContext(),FontManager.FONT_AWESOME);
+                .getCachedFont(getApplicationContext(),FontManager.FONT_AWESOME);
 
         FontManager
                 .markAsIconContainer(findViewById(R.id.icons_container),
